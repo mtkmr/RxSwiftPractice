@@ -10,6 +10,9 @@
 		8CAE4FAA26F317760007DC12 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8CAE4FA926F317760007DC12 /* RxSwift */; };
 		8CAE4FAC26F317760007DC12 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8CAE4FAB26F317760007DC12 /* RxCocoa */; };
 		8CAE4FAE26F317760007DC12 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8CAE4FAD26F317760007DC12 /* RxRelay */; };
+		8CAE502126F836310007DC12 /* SliderChange.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CAE502026F836310007DC12 /* SliderChange.storyboard */; };
+		8CAE502326F836400007DC12 /* SliderChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE502226F836400007DC12 /* SliderChangeViewController.swift */; };
+		8CAE502726F89E9C0007DC12 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE502626F89E9C0007DC12 /* UIColor+.swift */; };
 		8CB073A026F1737C00CDBD68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB0739F26F1737C00CDBD68 /* AppDelegate.swift */; };
 		8CB073A926F1737C00CDBD68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB073A826F1737C00CDBD68 /* Assets.xcassets */; };
 		8CB073AC26F1737C00CDBD68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB073AA26F1737C00CDBD68 /* LaunchScreen.storyboard */; };
@@ -27,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8CAE502026F836310007DC12 /* SliderChange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SliderChange.storyboard; sourceTree = "<group>"; };
+		8CAE502226F836400007DC12 /* SliderChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderChangeViewController.swift; sourceTree = "<group>"; };
+		8CAE502626F89E9C0007DC12 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		8CB0739C26F1737C00CDBD68 /* RxSwiftPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB0739F26F1737C00CDBD68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CB073A826F1737C00CDBD68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +65,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8CAE501F26F836100007DC12 /* SliderChange */ = {
+			isa = PBXGroup;
+			children = (
+				8CAE502026F836310007DC12 /* SliderChange.storyboard */,
+				8CAE502226F836400007DC12 /* SliderChangeViewController.swift */,
+				8CAE502626F89E9C0007DC12 /* UIColor+.swift */,
+			);
+			path = SliderChange;
+			sourceTree = "<group>";
+		};
 		8CB0739326F1737C00CDBD68 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +102,7 @@
 				8CB073AD26F1737C00CDBD68 /* Info.plist */,
 				8CD808EE26F21A4B00F6246A /* CountUp */,
 				8CD808F626F2B19F00F6246A /* SearchItems */,
+				8CAE501F26F836100007DC12 /* SliderChange */,
 			);
 			path = RxSwiftPractice;
 			sourceTree = "<group>";
@@ -181,6 +198,7 @@
 				8CB073AC26F1737C00CDBD68 /* LaunchScreen.storyboard in Resources */,
 				8CD808F826F2B1C800F6246A /* SearchItems.storyboard in Resources */,
 				8CD808E326F1D81900F6246A /* CountUp.storyboard in Resources */,
+				8CAE502126F836310007DC12 /* SliderChange.storyboard in Resources */,
 				8CB073BB26F1744A00CDBD68 /* Welcome.storyboard in Resources */,
 				8CB073A926F1737C00CDBD68 /* Assets.xcassets in Resources */,
 			);
@@ -195,7 +213,9 @@
 			files = (
 				8CD808ED26F1EB9E00F6246A /* CountUpModel.swift in Sources */,
 				8CB073BF26F174D100CDBD68 /* WelcomeViewController.swift in Sources */,
+				8CAE502326F836400007DC12 /* SliderChangeViewController.swift in Sources */,
 				8CB073A026F1737C00CDBD68 /* AppDelegate.swift in Sources */,
+				8CAE502726F89E9C0007DC12 /* UIColor+.swift in Sources */,
 				8CD8090226F2B57600F6246A /* APIClient.swift in Sources */,
 				8CD808FE26F2B3D800F6246A /* QiitaItemModel.swift in Sources */,
 				8CD808E526F1D82500F6246A /* CountUpViewController.swift in Sources */,
