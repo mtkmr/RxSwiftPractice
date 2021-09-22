@@ -43,7 +43,8 @@ final class CountUpViewController: UIViewController {
 
 private extension CountUpViewController {
     func bind() {
-        //ボタンがタップされたことをviewModelに通知する
+
+        //イベントを購読して、viewModelに通知し、処理が完了したら解放するようにする
         countUpButton.rx.tap
             .subscribe { [weak self] _ in
                 //viewModelの更新を受け取る

@@ -23,7 +23,7 @@ final class SearchItemsViewModel {
         //最後に何度もObservableを生成しないようにshareしておく
         let results = searchWord
             .filter{ 3 <= $0.count }
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .flatMapLatest{
                 return api.search(from: $0).materialize()

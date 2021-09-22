@@ -81,44 +81,48 @@ final class SliderChangeViewController: UIViewController {
 
 private extension SliderChangeViewController {
     func bind() {
-        let alphaObservable = alphaSlider.rx.value
+        //観測対象にする
+        let alphaObservable: Observable<CGFloat> = alphaSlider.rx.value
             .map({CGFloat($0) * 100})
-        let redObservable = redSlider.rx.value
+        let redObservable: Observable<CGFloat> = redSlider.rx.value
             .map({CGFloat($0)})
-        let greenObservable = greenSlider.rx.value
+        let greenObservable: Observable<CGFloat> = greenSlider.rx.value
             .map({CGFloat($0)})
-        let blueObservable = blueSlider.rx.value
+        let blueObservable: Observable<CGFloat> = blueSlider.rx.value
             .map({CGFloat($0)})
+        ///上記の値の最新値を結合する
+        let color: Observable<UIColor> = Observable<UIColor>.combineLatest(redObservable, greenObservable, blueObservable, alphaObservable) { (redValue, greenValue, blueValue, alpha) -> UIColor in
+            return UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: alpha)
+        }
 
-        //Label
+        let hex: Observable<String> = Observable<String>.combineLatest(redObservable, greenObservable, blueObservable, alphaObservable) { (redValue, greenValue, blueValue, alpha) -> String in
+            return UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: alpha).hex(withHash: true)
+        }
+
+        //イベントプロパティをバインドして、完了したら開放するようにする
         alphaObservable
             .map({"\(round($0) / 100)"})
             .bind(to: alphaLabel.rx.text)
             .disposed(by: disposeBag)
+
         redObservable
             .map({"\(Int($0 * 255))"})
             .bind(to: redLabel.rx.text)
             .disposed(by: disposeBag)
+
         greenObservable
             .map({"\(Int($0 * 255))"})
             .bind(to: greenLabel.rx.text)
             .disposed(by: disposeBag)
+
         blueObservable
             .map({"\(Int($0 * 255))"})
             .bind(to: blueLabel.rx.text)
             .disposed(by: disposeBag)
 
-        //Color
-        let color = Observable<UIColor>.combineLatest(redObservable, greenObservable, blueObservable, alphaObservable) { (redValue, greenValue, blueValue, alpha) -> UIColor in
-            return UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: alpha)
-        }
         color.bind(to: view.rx.backgroundColor)
             .disposed(by: disposeBag)
 
-        //HexCode
-        let hex = Observable<String>.combineLatest(redObservable, greenObservable, blueObservable, alphaObservable) { (redValue, greenValue, blueValue, alpha) -> String in
-            return UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: alpha).hex()
-        }
         hex.bind(to: hexCodeLabel.rx.text)
             .disposed(by: disposeBag)
 

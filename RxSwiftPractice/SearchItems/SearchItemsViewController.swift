@@ -44,7 +44,7 @@ final class SearchItemsViewController: UIViewController {
             }
             .disposed(by: disposeBag)
 
-        //viewModelを介してtitleを更新、Indicatorを更新
+        //viewModelを介してtitleを更新
         viewModel.searchItems
             .observe(on: MainScheduler.instance)
             .share(replay: 1, scope: .whileConnected)
